@@ -9,7 +9,7 @@ def model(s,a,obs):
   for o in range (0,len(obs)):
     for t in range (0,len(obs[o])):
       #REWARD TRACKER:
-      state = obs[o][t][0]
+      state =  obs[o][t][0]
       action = obs[o][t][1]
       reward = obs[o][t][2]
 

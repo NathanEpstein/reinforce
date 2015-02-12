@@ -21,7 +21,6 @@ def parse(*args):
     for t in range(0,len(obs[o])):
       state = obs[o][t][0]
       action = obs[o][t][1]
-      # reward = obs[o][t][2]
       if (state not in stateMap):
         stateMap.append(state)
       obs[o][t][0] = stateMap.index(state)
@@ -29,4 +28,3 @@ def parse(*args):
         actMap.append(action)
       obs[o][t][1] = actMap.index(action)
   return [stateMap,actMap,obs]
-
