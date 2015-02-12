@@ -28,7 +28,7 @@ def model(s,a,obs):
   # compute R[s]
   R = [0]*s
   for i in range(0,s):
-    R[i] = rcount[i][0]/float(rcount[i][1]) if (rcount[i][1]) else (0)
+    R[i] = rcount[i][0]/rcount[i][1] if (rcount[i][1]) else (0)
 
   P = [[[0]*s for _ in range (a)] for _ in range (s)]
   # compute P_sa[s']
@@ -36,7 +36,7 @@ def model(s,a,obs):
     for j in range(0,a):
       visits = sum(pcount[i][j])
       for k in range(0,s):
-        P[i][j][k] = pcount[i][j][k]/float(visits) if (visits) else (1/s)
+        P[i][j][k] = pcount[i][j][k]/visits if (visits) else (1/s)
 
   return [P,R]
 
