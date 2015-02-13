@@ -31,5 +31,5 @@ def learn(*args):
     strat[stateMap[i]] = actMap[policy[i]]
 
   #return strategy, transition matrix, reward
-  results = [strat,model[0],model[1]]
+  results = [strat,model[0],model[1],stateMap]
   return results

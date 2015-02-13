@@ -22,6 +22,25 @@ l.learn(obs,gamma)
 l.learn(obs,gamma,R)
 
 ```
+###Output
+```python
+import learn as l
+
+model = l.learn(obs,gamma,R)
+```
+
+`model[0]` is a dictionary which has contains the estimated optimal action for each state.
+
+`model[1]` is a 3-dimensional list representing the state probability transition matrix. `model[1][i][j][k]` is the estimated probability of moving from state i to state k with action j.
+
+`model[2]` is the estimated reward list.
+
+`model[2] = [reward1,rewardA2,...]`
+
+`model[3]` is the array of state names (to map the state-transition matrix to the state names)
+
+`model[3] = ['state1','state2',...]`
+
 ####obs
 obs is a 3-dimensional list. Each element of obs is a 2-d list of states. Each state is a list of the form [state, action, reward], if no R is specified, or [state,action], if R is specified.
 
@@ -40,7 +59,7 @@ gamma = 0.95
 ```
 
 ####R
-If rewards are ommitted in obs, R is a vector of length = len(obs) specifying the reward for each observation.
+If rewards are ommitted in obs, R is a list of length = len(obs) specifying the reward for each observation.
 
 ```python
 obsA = [[stateA1,actionA1,rewardA1],[stateA2,actionA2,rewardA2],...]
@@ -49,7 +68,6 @@ obsB = [[stateB1,actionB1,rewardB1],[stateB2,actionB2,rewardB2],...]
 obs = [obsA,obsB]
 R = [rewardA,rewardB]
 ```
-
 ##Examples
 <img src="example.png">
 ###Example1
