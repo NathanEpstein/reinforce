@@ -18,7 +18,9 @@ reinforce is intended to compliment the functionality of scikit-learn and togeth
 import learn as l
 
 l.learn(obs)
+# or
 l.learn(obs,gamma)
+# or
 l.learn(obs,gamma,R)
 
 ```
@@ -29,12 +31,12 @@ import learn as l
 model = l.learn(obs,gamma,R)
 ```
 
-`model` is a dictionary which has contains the estimated optimal action for each state.
+`model` is a dictionary which contains the estimated optimal action for each state.
 
-`model[1]` is a 3-dimensional list representing the state probability transition matrix. `model[1][i][j][k]` is the estimated probability of moving from state i to state k with action j.
+###Inputs
 
 ####obs
-obs is a 3-dimensional list. Each element of obs is a 2-d list of states. Each state is a list of the form [state, action, reward], if no R is specified, or [state,action], if R is specified.
+obs is a 3-dimensional list. Each element of obs is a 2-d list of time-steps. Each time-step is a list of the form [state, action, reward] if no R is specified, or [state,action] if R is specified. See examples for more detail.
 
 ```python
 obsA = [[stateA1,actionA1,rewardA1],[stateA2,actionA2,rewardA2],...]
@@ -114,4 +116,10 @@ main()
 # From these three paths, the learned strategy is:
 # {'A': 'R', 'C': 'F', 'B': 'L', 'Prize': 'F', 'D': 'L'}
 ```
+
+###Practical Note
+
+It is worth mentioning that the algorithm will learn (and the strategy will improve) **much faster if rewards for each step can be included** (as opposed to a reward for each observation). This is only for the rare case in which the user can choose between the two types of data - in practice it is more likely that only one reward per observation will be available.
+
+This can be seen in the above examples - the model in example 1 is more effective than that in example 2 (clearly, going left in state A is preferable to going right in state A).
 
