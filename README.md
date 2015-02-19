@@ -29,17 +29,9 @@ import learn as l
 model = l.learn(obs,gamma,R)
 ```
 
-`model[0]` is a dictionary which has contains the estimated optimal action for each state.
+`model` is a dictionary which has contains the estimated optimal action for each state.
 
 `model[1]` is a 3-dimensional list representing the state probability transition matrix. `model[1][i][j][k]` is the estimated probability of moving from state i to state k with action j.
-
-`model[2]` is the estimated reward list.
-
-`model[2] = [reward1,rewardA2,...]`
-
-`model[3]` is the array of state names (to map the state-transition matrix to the state names)
-
-`model[3] = ['state1','state2',...]`
 
 ####obs
 obs is a 3-dimensional list. Each element of obs is a 2-d list of states. Each state is a list of the form [state, action, reward], if no R is specified, or [state,action], if R is specified.
@@ -70,6 +62,7 @@ R = [rewardA,rewardB]
 ```
 ##Examples
 <img src="example.png">
+
 ###Example1
 ```python
 import learn as l
@@ -87,20 +80,13 @@ def main():
   # model = l.learn(obs)
 
   print ("From these three paths, the learned strategy is: ")
-  print (model[0])
-
-  print("And the state-transition probability matrix is: ")
-  print(model[1])
+  print (model)
 
   #note that many transition probabilities are estimated as uniform because there isn't yet data
 main()
 
-
-
 From these three paths, the learned strategy is:
 # {'A': 'L', 'C': 'F', 'B': 'L', 'Prize': 'F', 'D': 'L'}
-# And the state-transition probability matrix is:
-# [[[1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0], [0.2, 0.2, 0.2, 0.2, 0.2]], [[0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2]], [[1.0, 0.0, 0.0, 0.0, 0.0], [0.2, 0.2, 0.2, 0.2, 0.2], [0.0, 0.0, 0.0, 1.0, 0.0], [0.2, 0.2, 0.2, 0.2, 0.2]], [[0.0, 0.0, 0.0, 0.0, 1.0], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2]], [[0.2, 0.2, 0.2, 0.2, 0.2], [1.0, 0.0, 0.0, 0.0, 0.0], [0.2, 0.2, 0.2, 0.2, 0.2], [0.0, 0.0, 0.0, 1.0, 0.0]]]
 ```
 
 ###Example2
@@ -120,17 +106,12 @@ def main():
   model = l.learn(obs,gamma,rewards)
 
   print ("From these three paths, the learned strategy is: ")
-  print (model[0])
-
-  print("And the state-transition probability matrix is: ")
-  print(model[1])
+  print (model)
 
   #note that many transition probabilities are estimated as uniform because there isn't yet data
 main()
 
 # From these three paths, the learned strategy is:
 # {'A': 'R', 'C': 'F', 'B': 'L', 'Prize': 'F', 'D': 'L'}
-# And the state-transition probability matrix is:
-# [[[1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0], [0.2, 0.2, 0.2, 0.2, 0.2]], [[0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2]], [[1.0, 0.0, 0.0, 0.0, 0.0], [0.2, 0.2, 0.2, 0.2, 0.2], [0.0, 0.0, 0.0, 1.0, 0.0], [0.2, 0.2, 0.2, 0.2, 0.2]], [[0.0, 0.0, 0.0, 0.0, 1.0], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2]], [[0.2, 0.2, 0.2, 0.2, 0.2], [1.0, 0.0, 0.0, 0.0, 0.0], [0.2, 0.2, 0.2, 0.2, 0.2], [0.0, 0.0, 0.0, 1.0, 0.0]]]
 ```
 

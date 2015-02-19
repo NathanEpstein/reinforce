@@ -2,6 +2,8 @@ import parse as par
 import mdpmodel as mod
 import mdpsolve as sol
 
+#make results class
+
 # takes 3d list of observations & reward list(if step-wise rewards not included in observations)
 # [obs],[obs,gamma],[obs,gamma,R]
 def learn(*args):
@@ -30,6 +32,5 @@ def learn(*args):
   for i in range(0,len(policy)):
     strat[stateMap[i]] = actMap[policy[i]]
 
-  #return strategy, transition matrix, reward
-  results = [strat,model[0],model[1],stateMap]
-  return results
+  #return strategy
+  return strat
