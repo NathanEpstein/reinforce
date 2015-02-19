@@ -53,7 +53,7 @@ gamma = 0.95
 ```
 
 ####R
-If rewards are ommitted in obs, R is a list of length = len(obs) specifying the reward for each observation.
+If rewards are ommitted in obs, R is a list of length = len(obs) specifying the reward for each observation. See examples for more detail.
 
 ```python
 obsA = [[stateA1,actionA1,rewardA1],[stateA2,actionA2,rewardA2],...]
