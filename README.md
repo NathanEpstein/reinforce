@@ -12,6 +12,10 @@ Implementation based on Andrew Ng's <a href="http://cs229.stanford.edu/notes/cs2
 
 reinforce is intended to compliment the functionality of scikit-learn and together form a more complete machine learning toolkit.
 
+##Install
+
+`pip install reinforce`
+
 ##Usage
 
 ```python
