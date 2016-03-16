@@ -20,7 +20,6 @@ def policy(P,gamma,R):
       futureVal = -float('Inf')
       #iterate over each action
       for a in range(0,len(P[s])):
-        arg = 0
         val = 0
         #iterate over each destination state
         for s_ in range(0,len(P[s][a])):
