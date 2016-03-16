@@ -60,8 +60,8 @@ gamma = 0.95
 If rewards are ommitted in obs, R is a list of length = len(obs) specifying the reward for each observation. See examples for more detail.
 
 ```python
-obsA = [[stateA1,actionA1,rewardA1],[stateA2,actionA2,rewardA2],...]
-obsB = [[stateB1,actionB1,rewardB1],[stateB2,actionB2,rewardB2],...]
+obsA = [[stateA1,actionA1],[stateA2,actionA2],...]
+obsB = [[stateB1,actionB1],[stateB2,actionB2],...]
 
 obs = [obsA,obsB]
 R = [rewardA,rewardB]
