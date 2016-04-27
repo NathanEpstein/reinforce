@@ -1,1 +1,1 @@
-from .learn import MarkovAgent
+from .learn import *
