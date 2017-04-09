@@ -1,4 +1,4 @@
-#reinforce
+# reinforce
 
 <img src="./MDP.png">
 
@@ -10,7 +10,7 @@ Implementation based on Andrew Ng's <a href="http://cs229.stanford.edu/notes/cs2
 
 More information related to this project can be found <a href="https://github.com/NathanEpstein/pydata-reinforce">here.</a>
 
-##Example Usage
+## Example Usage
 
 ```python
 
